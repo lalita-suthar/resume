@@ -7,6 +7,60 @@
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Base styles */
+body { margin:0; font-family:'Roboto',sans-serif; color:#fff; overflow-x:hidden; background:#111; }
+a { color:#1abc9c; text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+/* Navigation */
+nav { position:fixed; top:0; left:0; width:100%; background:rgba(0,0,0,0.7); z-index:1000; }
+nav ul { list-style:none; display:flex; justify-content:center; padding:1rem; margin:0; gap:2rem; }
+nav ul li a { color:#fff; font-weight:bold; transition:0.3s; }
+nav ul li a:hover { color:#1abc9c; }
+
+/* Animated background */
+.background { position:fixed; top:0; left:0; width:100%; height:100%; background:linear-gradient(120deg,#007bff,#1abc9c,#8e44ad); background-size:300% 300%; animation:gradientBG 15s ease infinite; z-index:-1; }
+@keyframes gradientBG { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
+
+/* Header */
+header { text-align:center; padding:6rem 2rem 2rem; }
+header .logo { width:100px; margin-bottom:1rem; }
+
+/* Sections */
+section { margin:2rem auto; max-width:900px; background:rgba(0,0,0,0.6); padding:2rem; border-radius:10px; transition:transform 0.3s; }
+.fade-in { opacity:0; animation:fadeIn 1.5s forwards; animation-delay:0.3s; }
+@keyframes fadeIn { to { opacity:1; } }
+
+/* Skills */
+.skills-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1rem; justify-items:center; }
+.skill-card { background:rgba(255,255,255,0.1); padding:1rem; border-radius:12px; text-align:center; width:160px; transition:transform 0.3s,background 0.3s,box-shadow 0.3s; position:relative; cursor:pointer; }
+.skill-card img { width:50px; margin-bottom:0.5rem; }
+.skill-card:hover { transform:translateY(-10px) scale(1.05); background:rgba(255,255,255,0.3); box-shadow:0 10px 20px rgba(0,0,0,0.3); }
+.skill-card::after { content: attr(data-tooltip); position:absolute; bottom:-2rem; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.8); color:#fff; padding:0.5rem; border-radius:6px; font-size:0.8rem; opacity:0; pointer-events:none; transition:0.3s; white-space:nowrap; }
+.skill-card:hover::after { opacity:1; bottom:-2.5rem; }
+
+/* Experience */
+.experience-list { list-style:none; padding:0; margin:0; }
+.role-item { margin-bottom:1rem; cursor:pointer; }
+.role-title { font-weight:bold; font-size:1.1rem; display:block; padding:0.5rem; background:rgba(255,255,255,0.1); border-radius:6px; transition:background 0.3s; }
+.role-title:hover { background:rgba(255,255,255,0.3); }
+.role-details { display:none; margin:0.5rem 0 0 1rem; list-style:disc; transition:all 0.3s ease; }
+.role-item.active .role-details { display:block; }
+
+/* Projects */
+.projects-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; }
+.project-card { background:rgba(255,255,255,0.1); padding:1rem; border-radius:12px; transition:transform 0.3s, box-shadow 0.3s; }
+.project-card:hover { transform:translateY(-5px); box-shadow:0 10px 15px rgba(0,0,0,0.3); }
+.project-card a { font-weight:bold; }
+
+/* Download CV */
+#download-cv { padding:0.8rem 1.5rem; font-size:1rem; border:none; border-radius:8px; background:#1abc9c; color:#fff; cursor:pointer; transition:0.3s; }
+#download-cv:hover { background:#16a085; transform:scale(1.05); }
+
+/* Footer */
+footer { text-align:center; padding:1rem; margin-top:2rem; }
+</style>
 </head>
 <body>
 
@@ -16,11 +70,11 @@
     <li><a href="#objective">Objective</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#certificates">Certificates</a></li>
   </ul>
 </nav>
 
-<!-- Animated background -->
 <div class="background"></div>
 
 <header class="fade-in">
@@ -31,34 +85,161 @@
 </header>
 
 <main>
+  <!-- Objective -->
   <section id="objective" class="fade-in">
     <h2>Objective</h2>
-    <p>Backend Engineer (Rust) | 3+ Years in Infrastructure & Web Systems (TiKV, Couchbase, WASM) | Exploring AI & Web3 Opportunities</p>
+    <p>Backend Engineer (Rust) | 3+ Years in Infrastructure & Web Systems (TiKV, Couchbase, WASM) | Based in Melbourne | Actively Exploring AI & Web3 Opportunities</p>
   </section>
 
+  <!-- Skills -->
   <section id="skills" class="fade-in">
     <h2>Skills</h2>
     <div class="skills-container">
+      <div class="skill-card" data-tooltip="Expert in Rust for backend, system programming & WASM.">
+        <img src="images/rust.png" alt="Rust"><p>Rust</p>
+      </div>
+      <div class="skill-card" data-tooltip="Node.js backend development, API creation.">
+        <img src="images/nodejs.png" alt="Node.js"><p>Node.js</p>
+      </div>
+      <div class="skill-card" data-tooltip="JavaScript & TypeScript for frontend & backend scripting.">
+        <img src="images/javascript.png" alt="JavaScript"><p>JavaScript / TypeScript</p>
+      </div>
+      <div class="skill-card" data-tooltip="Angular for responsive frontend development.">
+        <img src="images/angular.png" alt="Angular"><p>Angular</p>
+      </div>
+      <div class="skill-card" data-tooltip="Databases: MySQL, Couchbase, TiKV, Elasticsearch.">
+        <img src="images/database.png" alt="Database"><p>Databases</p>
+      </div>
+      <div class="skill-card" data-tooltip="DevOps: Docker, CI/CD, Git, Kafka.">
+        <img src="images/docker.png" alt="Docker"><p>DevOps</p>
+      </div>
+      <div class="skill-card" data-tooltip="WebAssembly (WASM) for high-performance modules.">
+        <img src="images/wasm.png" alt="WASM"><p>WASM</p>
+      </div>
+      <div class="skill-card" data-tooltip="Cloud & cloud-native infrastructure (AWS, Docker).">
+        <img src="images/cloud.png" alt="Cloud"><p>Cloud</p>
+      </div>
+    </div>
+  </section>
 
-      <!-- Programming Languages -->
-      <div class="skill-card">
-        <img src="images/rust.png" alt="Rust">
-        <p>Rust</p>
-      </div>
-      <div class="skill-card">
-        <img src="images/nodejs.png" alt="Node.js">
-        <p>Node.js</p>
-      </div>
-      <div class="skill-card">
-        <img src="images/javascript.png" alt="JavaScript">
-        <p>JavaScript / TypeScript</p>
-      </div>
-      <div class="skill-card">
-        <img src="images/angular.png" alt="Angular">
-        <p>Angular</p>
-      </div>
+  <!-- Experience -->
+<!-- Experience -->
+  <section id="experience" class="fade-in">
+    <h2>Experience</h2>
+    <ul class="experience-list">
+      <li class="role-item">
+        <span class="role-title">Senior Software Developer | May 2024 – Present</span>
+        <ul class="role-details">
+          <li>Led backend development of internal tools and CRM systems using Rust.</li>
+          <li>Mentored 6+ interns and juniors, conducted technical evaluations for new hires.</li>
+          <li>Designed and maintained internal services like Software Management, Audit, QM Issue systems.</li>
+          <li>Conducted regular code reviews and enforced quality standards.</li>
+          <li>Built SSD disk monitoring services integrated with Kibana.</li>
+        </ul>
+      </li>
+      <li class="role-item">
+        <span class="role-title">Software Developer | Aug 2023 – May 2024</span>
+        <ul class="role-details">
+          <li>Designed backend task allocation and response team systems.</li>
+          <li>Built data import tools to sync MySQL into Couchbase and TiKV.</li>
+          <li>Developed backend features for user and task management modules.</li>
+          <li>Ensured secure API integrations and reliable data flow.</li>
+        </ul>
+      </li>
+      <li class="role-item">
+        <span class="role-title">Junior Software Developer | May 2022 – Aug 2023</span>
+        <ul class="role-details">
+          <li>Developed Rust + WASM tools to manipulate PDFs and generate SVGs.</li>
+          <li>Supported feature development, unit testing, and documentation.</li>
+        </ul>
+      </li>
+      <li class="role-item">
+        <span class="role-title">Internship Trainee | Jan 2022 – Apr 2022</span>
+        <ul class="role-details">
+          <li>Trained in modern backend development with Rust and Node.js.</li>
+          <li>Gained exposure to debugging tasks under team guidance.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
 
-      <!-- Databases -->
-      <div class="skill-card">
-        <img src="images/database.png" alt="Databases">
-        <p>MySQL, Couch
+  <!-- Projects -->
+  <section id="projects" class="fade-in">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <h3>Rust WASM PDF Generator</h3>
+        <p>Node.js + WASM Rust module generating PDFs from web forms.</p>
+        <a href="https://github.com/username/rust-wasm-pdf" target="_blank">View on GitHub</a>
+      </div>
+      <div class="project-card">
+        <h3>Backend Microservices with Couchbase & TiKV</h3>
+        <p>High-performance backend using Rust & Node.js with distributed DBs.</p>
+        <a href="https://github.com/username/backend-project" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates -->
+  <section id="certificates" class="fade-in">
+    <h2>Certificates</h2>
+    <ul>
+      <li>Certified Info Security & Ethical Hacker, 2019</li>
+      <li>Programming for Everybody (Python), 2023</li>
+      <li>JavaScript Algorithms & Data Structures, 2023</li>
+      <li>Agile Project Management, 2023</li>
+      <li>DevOps Foundations, 2024</li>
+    </ul>
+  </section>
+
+  <!-- Download CV -->
+  <section id="download" class="fade-in">
+    <button id="download-cv">Download CV</button>
+  </section>
+</main>
+
+<footer class="fade-in">
+  <p>Full Working Rights in Australia | Based in Melbourne, VIC</p>
+  <p>References available upon request</p>
+</footer>
+
+<script>
+// Fade-in scroll animation
+const sections = document.querySelectorAll("section, header, footer");
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    if(scrollY + window.innerHeight > sectionTop + 100){
+      section.classList.add("fade-in");
+    }
+  });
+});
+
+// Smooth scroll nav
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Download CV
+document.getElementById('download-cv').addEventListener('click', () => {
+  window.open('resume.pdf', '_blank');
+});
+
+// Experience hover details
+const roles = document.querySelectorAll('.role-item');
+roles.forEach(role => {
+  role.addEventListener('mouseenter', () => {
+    roles.forEach(r => r.classList.remove('active'));
+    role.classList.add('active');
+  });
+  role.addEventListener('mouseleave', () => {
+    role.classList.remove('active');
+  });
+});
+</script>
+</body>
+</html>
