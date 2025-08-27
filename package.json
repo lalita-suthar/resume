@@ -1,0 +1,23 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lalita-suthar/resume.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lalita-suthar/resume/issues"
+  },
+  "homepage": "https://github.com/lalita-suthar/resume#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
