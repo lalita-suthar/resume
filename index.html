@@ -164,21 +164,33 @@ footer { text-align:center; padding:1rem; margin-top:2rem; }
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="fade-in">
-    <h2>Projects</h2>
-    <div class="projects-container">
-      <div class="project-card">
-        <h3>Rust WASM PDF Generator</h3>
-        <p>Node.js + WASM Rust module generating PDFs from web forms.</p>
-        <a href="https://github.com/username/rust-wasm-pdf" target="_blank">View on GitHub</a>
-      </div>
-      <div class="project-card">
-        <h3>Backend Microservices with Couchbase & TiKV</h3>
-        <p>High-performance backend using Rust & Node.js with distributed DBs.</p>
-        <a href="https://github.com/username/backend-project" target="_blank">View on GitHub</a>
-      </div>
+  <!-- Projects -->
+<!-- Projects -->
+<!-- Projects -->
+<!-- Projects -->
+<section id="projects" class="fade-in">
+  <h2>Projects</h2>
+  <div class="projects-slider">
+    <div class="project-card">
+      <h3>Rust WASM PDF Generator</h3>
+      <p>Node.js + WASM Rust module generating PDFs from web forms.</p>
     </div>
-  </section>
+    <div class="project-card">
+      <h3>Backend Microservices with Couchbase & TiKV</h3>
+      <p>High-performance backend using Rust & Node.js with distributed databases.</p>
+    </div>
+    <div class="project-card">
+      <h3>Internal Audit Management System</h3>
+      <p>Rust backend service managing internal audits and reports.</p>
+    </div>
+    <div class="project-card">
+      <h3>QM Issue Management System</h3>
+      <p>Tool to manage quality management issues with Rust and Node.js.</p>
+    </div>
+  </div>
+</section>
+
+
 
   <!-- Certificates -->
   <section id="certificates" class="fade-in">
@@ -194,8 +206,9 @@ footer { text-align:center; padding:1rem; margin-top:2rem; }
 
   <!-- Download CV -->
   <section id="download" class="fade-in">
-    <button id="download-cv">Download CV</button>
-  </section>
+  <button id="download-cv">Download CV</button>
+</section>
+</section>
 </main>
 
 <footer class="fade-in">
@@ -240,6 +253,15 @@ roles.forEach(role => {
     role.classList.remove('active');
   });
 });
+
+document.getElementById('download-cv').addEventListener('click', () => {
+  const link = document.createElement('a');
+  link.href = 'Lalita_Suthar_Backend_Developer.pdf'; // path to your PDF
+  link.download = 'Lalita_Suthar_Backend_Developer.pdf'; // optional file name
+  link.click();
+});
 </script>
+
+
 </body>
 </html>
