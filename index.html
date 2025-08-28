@@ -13,6 +13,8 @@ body { margin:0; font-family:'Roboto',sans-serif; color:#fff; overflow-x:hidden;
 a { color:#1abc9c; text-decoration:none; }
 a:hover { text-decoration:underline; }
 
+
+
 /* Navigation */
 nav { position:fixed; top:0; left:0; width:100%; background:rgba(0,0,0,0.7); z-index:1000; }
 nav ul { list-style:none; display:flex; justify-content:center; padding:1rem; margin:0; gap:2rem; }
@@ -20,6 +22,7 @@ nav ul li a { color:#fff; font-weight:bold; transition:0.3s; }
 nav ul li a:hover { color:#1abc9c; }
 
 /* Animated background */
+
 .background { position:fixed; top:0; left:0; width:100%; height:100%; background:linear-gradient(120deg,#007bff,#1abc9c,#8e44ad); background-size:300% 300%; animation:gradientBG 15s ease infinite; z-index:-1; }
 @keyframes gradientBG { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
 
@@ -78,7 +81,7 @@ footer { text-align:center; padding:1rem; margin-top:2rem; }
 <div class="background"></div>
 
 <header class="fade-in">
-  <img src="images/rust.png" alt="Rust" class="logo">
+  <!-- <img src="images/rust.png" alt="Rust" class="logo"> -->
   <h1>Lalita Suthar</h1>
   <p>Backend Engineer (Rust) | Melbourne, Australia</p>
   <p>+61 499 800 752 ⋄ <a href="mailto:lalita.suthar4898@gmail.com">lalita.suthar4898@gmail.com</a> ⋄ <a href="https://linkedin.com/lalita-suthar" target="_blank">LinkedIn</a></p>
@@ -92,7 +95,7 @@ footer { text-align:center; padding:1rem; margin-top:2rem; }
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="fade-in">
+  <!-- <section id="skills" class="fade-in">
     <h2>Skills</h2>
     <div class="skills-container">
       <div class="skill-card" data-tooltip="Expert in Rust for backend, system programming & WASM.">
@@ -120,7 +123,69 @@ footer { text-align:center; padding:1rem; margin-top:2rem; }
         <img src="images/cloud.png" alt="Cloud"><p>Cloud</p>
       </div>
     </div>
-  </section>
+  </section> -->
+
+  <section id="skills" class="fade-in">
+  <h2>Skills</h2>
+  
+  <!-- Category Tabs -->
+  <div class="skill-tabs">
+    <button class="tab active" data-target="languages">Languages</button>
+    <button class="tab" data-target="databases">Databases</button>
+    <button class="tab" data-target="devops">Tools & DevOps</button>
+    <button class="tab" data-target="concepts">Concepts</button>
+    <button class="tab" data-target="softskills">Soft Skills</button>
+  </div>
+
+  <!-- Skills Content -->
+  <div class="skills-wrapper">
+    <!-- Languages -->
+    <div class="skills-container show" id="languages">
+      <div class="skill-card"><img src="public/images/rustt.png"><p>Rust</p></div>
+      <div class="skill-card"><img src="public/images/javascript.png"><p>JavaScript</p></div>
+      <div class="skill-card"><img src="public/images/node.png"><p>Node.js</p></div>
+      <div class="skill-card"><img src="public/images/python.png"><p>Python</p></div>
+      <div class="skill-card"><img src="public/images/c++.png"><p>C++</p></div>
+    </div>
+
+    <!-- Databases -->
+    <div class="skills-container" id="databases">
+      <div class="skill-card"><img src="public/images/mysql.png"><p>MySQL</p></div>
+      <div class="skill-card"><img src="public/images/couchbase.png"><p>Couchbase</p></div>
+      <div class="skill-card"><img src="public/images/tikv.png"><p>TiKV</p></div>
+      <div class="skill-card"><img src="public/images/elasticsearch.png"><p>Elasticsearch</p></div>
+    </div>
+
+    <!-- Tools & DevOps -->
+    <div class="skills-container" id="devops">
+      <div class="skill-card"><img src="public/images/docker.png"><p>Docker</p></div>
+      <div class="skill-card"><img src="public/images/github.png"><p>GitHub</p></div>
+      <div class="skill-card"><img src="public/images/cicd.png"><p>CI/CD</p></div>
+      <div class="skill-card"><img src="public/images/kafka.png"><p>Kafka</p></div>
+      <div class="skill-card"><img src="public/images/spinnaker.png"><p>Spinnaker</p></div>
+    </div>
+
+    <!-- Concepts -->
+    <div class="skills-container" id="concepts">
+      <div class="skill-card"><img src="public/images/multithreading.png"><p>Multithreading</p></div>
+      <div class="skill-card"><img src="public/images/wasm.png"><p>WASM</p></div>
+      <div class="skill-card"><img src="public/images/ds.png"><p>Distributed Systems</p></div>
+      <div class="skill-card"><img src="public/images/bapi.png"><p>Backend APIs</p></div>
+      <div class="skill-card"><img src="public/images/es.png"><p>Embedded systems</p></div>
+      <div class="skill-card"><img src="public/images/web3.png"><p>Web3</p></div>
+    </div>
+
+    <!-- Soft Skills -->
+    <div class="skills-container" id="softskills">
+            <div class="skill-card"><img src="public/images/leader.png"><p>Leadership</p></div>
+      <div class="skill-card"><img src="public/images/coll.png"><p>Collaboration</p></div>
+      <div class="skill-card"><img src="public/images/tm.png"><p>Time Management</p></div>
+      <div class="skill-card"><img src="public/images/ct.png"><p>Critical Thinking</p></div>
+      <div class="skill-card"><img src="public/images/communication.png"><p>Communication</p></div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Experience -->
 <!-- Experience -->
@@ -216,52 +281,103 @@ footer { text-align:center; padding:1rem; margin-top:2rem; }
   <p>References available upon request</p>
 </footer>
 
-<script>
-// Fade-in scroll animation
-const sections = document.querySelectorAll("section, header, footer");
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    if(scrollY + window.innerHeight > sectionTop + 100){
-      section.classList.add("fade-in");
-    }
-  });
-});
 
-// Smooth scroll nav
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-  });
-});
+<!-- <div class="skills-bg">
+  <svg width="100%" height="100%">
+    <circle cx="20%" cy="30%" r="40" fill="#007acc">
+      <animate attributeName="cx" values="20%;80%;20%" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <text x="15%" y="35%" fill="#fff" font-size="20">Rust</text>
 
-// Download CV
-document.getElementById('download-cv').addEventListener('click', () => {
-  window.open('resume.pdf', '_blank');
-});
+    <circle cx="70%" cy="60%" r="50" fill="#f7df1e">
+      <animate attributeName="cy" values="60%;20%;60%" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <text x="65%" y="65%" fill="#000" font-size="20">JS</text>
+  </svg>
+</div> -->
 
-// Experience hover details
-const roles = document.querySelectorAll('.role-item');
-roles.forEach(role => {
-  role.addEventListener('mouseenter', () => {
-    roles.forEach(r => r.classList.remove('active'));
-    role.classList.add('active');
-  });
-  role.addEventListener('mouseleave', () => {
-    role.classList.remove('active');
-  });
-});
+<!-- 
+<div class="bg">
+  Left side animation
+  <div class="left">
+    <img src="icons/database.svg" class="float" />
+    <img src="icons/server.svg" class="float delay1" />
+  </div>
 
-document.getElementById('download-cv').addEventListener('click', () => {
-  const link = document.createElement('a');
-  link.href = 'Lalita_Suthar_Backend_Developer.pdf'; // path to your PDF
-  link.download = 'Lalita_Suthar_Backend_Developer.pdf'; // optional file name
-  link.click();
-});
+  Right side animation
+  <div class="right">
+    <img src="icons/code.svg" class="float" />
+    <img src="icons/gear.svg" class="float delay2" />
+  </div>
+
+  Top circuits
+  <div class="top">
+    <img src="icons/circuit.svg" class="slide" />
+  </div>
+
+  Bottom pipelines
+  <div class="bottom">
+    <img src="icons/kafka.svg" class="slide delay3" />
+  </div>
+</div> -->
+
+<div class="animated-bg">
+  <!-- Floating circles left -->
+  <div class="circle small left delay1"></div>
+  <div class="circle medium left delay2"></div>
+
+  <!-- Floating circles right -->
+  <div class="circle small right delay2"></div>
+  <div class="circle large right delay3"></div>
+
+  <!-- Top lines -->
+  <div class="line top delay1"></div>
+  <div class="line top delay2"></div>
+
+  <!-- Bottom lines -->
+  <div class="line bottom delay2"></div>
+  <div class="line bottom delay3"></div>
+
+  <!-- Rotating gears -->
+  <div class="gear gear1"></div>
+  <div class="gear gear2"></div>
+
+  <!-- Flowing binary rain (Matrix style but subtle) -->
+  <div class="binary"></div>
+  <div class="binary delay1"></div>
+  <div class="binary delay2"></div>
+
+  <!-- Left & Right floating code snippets -->
+  <div class="code-snippet left">{ }</div>
+  <div class="code-snippet right">&lt;/&gt;</div>
+
+  <!-- Top & Bottom network lines -->
+  <div class="line top delay1"></div>
+  <div class="line bottom delay2"></div>
+
+  <!-- Rotating backend gears -->
+  <div class="gear gear1"></div>
+  <div class="gear gear2"></div>
+</div>
+
+
+
+
+
+<style>
+.skills-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -1;
+  background: linear-gradient(120deg,#1c1c3c,#2a5470);
+  overflow: hidden;
+}
+</style>
+<script src="script.js">
+
+
 </script>
-
 
 </body>
 </html>

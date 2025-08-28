@@ -70,14 +70,14 @@ section {
   transition: transform 0.3s;
 }
 
-/* Skills container */
+/* Skills container
 .skills-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
   justify-items: center;
-}
-
+} */
+/* 
 .skill-card {
   background: rgba(255,255,255,0.1);
   padding: 1rem;
@@ -94,7 +94,7 @@ section {
   transform: translateY(-10px) scale(1.05);
   background: rgba(255,255,255,0.3);
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
+} */
 
 /* Download CV button */
 #download-cv {
@@ -158,4 +158,226 @@ footer {
 .project-card:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+}
+
+/* Animated background container */
+/* .animated-bg {
+  position: fixed;
+  top:0; left:0;
+  width:100vw; height:100vh;
+  overflow:hidden;
+  z-index:-1;
+  pointer-events:none;
+} */
+
+/* Animated background */
+.animated-bg {
+  position: fixed;
+  top:0; left:0;
+  width:100vw; height:100vh;
+  overflow:hidden;
+  z-index:-1;
+  pointer-events:none;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.7), #0d0d0d);
+}
+
+/* Binary rain */
+.binary {
+  position:absolute;
+  top:0; left:10%;
+  width:2px; height:100%;
+  background: linear-gradient(to bottom, rgba(0,255,0,0.6), transparent);
+  animation: binaryFall 6s linear infinite;
+  opacity:0.4;
+}
+.binary.delay1 { left:30%; animation-delay:1s; }
+.binary.delay2 { left:70%; animation-delay:2.5s; }
+
+@keyframes binaryFall {
+  from { transform:translateY(-100%); }
+  to { transform:translateY(100%); }
+}
+
+
+
+/* Floating circles (like DB nodes / APIs) */
+.circle {
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  animation: float 12s ease-in-out infinite;
+}
+.circle.small { width:20px; height:20px; }
+.circle.medium { width:40px; height:40px; }
+.circle.large { width:70px; height:70px; }
+
+.left { left:5%; }
+.right { right:5%; }
+
+.delay1 { animation-delay:2s; }
+.delay2 { animation-delay:4s; }
+.delay3 { animation-delay:6s; }
+
+@keyframes float {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-80px); }
+}
+
+/* Floating code snippets */
+.code-snippet {
+  position:absolute;
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight:bold;
+  color: rgba(0,255,255,0.5);
+  animation: float 10s ease-in-out infinite;
+}
+.code-snippet.left { left:5%; top:40%; }
+.code-snippet.right { right:5%; top:60%; }
+
+@keyframes float {
+  0%,100% { transform:translateY(0) rotate(0deg); }
+  50% { transform:translateY(-60px) rotate(10deg); }
+}
+
+
+/* Network lines */
+.line {
+  position:absolute;
+  width:200px; height:2px;
+  background:rgba(0,200,255,0.2);
+  animation: slide 15s linear infinite;
+}
+.top { top:5%; }
+.bottom { bottom:5%; }
+
+@keyframes slide {
+  from { transform:translateX(-300px); }
+  to { transform:translateX(100vw); }
+}
+
+/* Gears (backend systems) */
+.gear {
+  position:absolute;
+  width:50px; height:50px;
+  border:5px solid rgba(255,255,255,0.15);
+  border-radius:50%;
+  animation: spin 20s linear infinite;
+}
+.gear::before {
+  content:"";
+  position:absolute;
+  top:-10px; left:50%;
+  width:10px; height:20px;
+  background:rgba(255,255,255,0.2);
+  transform:translateX(-50%);
+}
+.gear1 { left:10%; bottom:15%; }
+.gear2 { right:10%; top:15%; animation-duration:30s; }
+
+@keyframes spin {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
+}
+
+/* Moving horizontal lines (like data streams) */
+.line {
+  position:absolute;
+  width:200px; height:2px;
+  background:rgba(255,255,255,0.2);
+  animation: slide 20s linear infinite;
+}
+.top { top:5%; }
+.bottom { bottom:5%; }
+
+@keyframes slide {
+  from { transform:translateX(-250px); }
+  to { transform:translateX(100vw); }
+}
+
+/* Rotating gears */
+.gear {
+  position:absolute;
+  width:60px; height:60px;
+  border:6px solid rgba(255,255,255,0.2);
+  border-radius:50%;
+  animation: spin 25s linear infinite;
+}
+.gear::before {
+  content:"";
+  position:absolute;
+  top:-12px; left:50%;
+  width:12px; height:24px;
+  background:rgba(255,255,255,0.3);
+  transform:translateX(-50%);
+}
+.gear1 { left:5%; bottom:15%; }
+.gear2 { right:5%; top:15%; animation-duration:40s; }
+
+@keyframes spin {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
+}
+
+
+/* Tabs */
+.skill-tabs {
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  margin-bottom:1.5rem;
+}
+.skill-tabs .tab {
+  padding:0.6rem 1.2rem;
+  border:none;
+  border-radius:8px;
+  background:rgba(255,255,255,0.1);
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+.skill-tabs .tab.active,
+.skill-tabs .tab:hover {
+  background:#1abc9c;
+}
+
+/* Skills grid */
+.skills-wrapper {
+  position:relative;
+  min-height:250px;
+}
+.skills-container {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:1rem;
+  justify-items:center;
+  opacity:0;
+  pointer-events:none;
+  position:absolute;
+  width:100%;
+  transition:opacity 0.4s;
+}
+.skills-container.show {
+  opacity:1;
+  pointer-events:auto;
+  position:relative;
+}
+
+.skill-card {
+  background:rgba(255,255,255,0.08);
+  padding:1rem;
+  border-radius:12px;
+  text-align:center;
+  width:120px;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.skill-card img {
+  width:40px;
+  margin-bottom:0.5rem;
+}
+.skill-card:hover {
+  transform:translateY(-10px) scale(1.05);
+  box-shadow:0 8px 20px rgba(0,0,0,0.4);
+  background:rgba(255,255,255,0.2);
 }
